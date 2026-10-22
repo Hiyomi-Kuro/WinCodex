@@ -1,0 +1,31 @@
+{
+  "name": "wincodex",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Windows-local, read-only MCP file server with an Edge web interface",
+  "workspaces": [
+    "apps/server",
+    "apps/web"
+  ],
+  "scripts": {
+    "dev": "npm-run-all --parallel dev:server dev:web",
+    "dev:server": "npm run dev -w @wincodex/server",
+    "dev:web": "npm run dev -w @wincodex/web",
+    "build": "npm-run-all build:server build:web",
+    "build:server": "npm run build -w @wincodex/server",
+    "build:web": "npm run build -w @wincodex/web",
+    "start": "node apps/server/dist/index.js",
+    "test": "tsx --test tests/*.test.ts",
+    "clean:tmp": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts/clean-temp.ps1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "npm-run-all2": "^8.0.0",
+    "tsx": "^4.20.0",
+    "typescript": "^5.9.0"
+  },
+  "engines": {
+    "node": ">=22.21.0 <23 || >=24.5.0"
+  }
+}

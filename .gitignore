@@ -1,0 +1,13 @@
+node_modules/
+**/node_modules/
+apps/server/dist/
+apps/web/dist/
+apps/web/.vite/
+.tmp/*
+!.tmp/.gitkeep
+data/state.json
+data/logs.jsonl
+data/server.lock
+*.log
+*.user
+*.suo
